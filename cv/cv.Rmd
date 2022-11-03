@@ -1,0 +1,165 @@
+---
+name: Maina Handmaker
+#surname: Handmaker
+position: "PhD Student"
+address: "University of Massachusetts Amherst"
+phone: 502.523.1157
+www: mainahandmaker.com
+email: "mhandmaker@umass.edu"
+#twitter: mainahandmaker
+#github: mainahandmaker
+#linkedin: mainahandmaker
+headcolor: 414141
+date: "`r format(Sys.time(), '%B %Y')`"
+output:
+  vitae::awesomecv:
+    page_total: true
+    show_footer: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(here)
+library(vitae)
+library(dplyr)
+library(kableExtra)
+```
+
+```{r functions}
+readExcelSheets <- function(filename){
+  # read all sheets in .xlsx 
+  all <- readxl::excel_sheets(filename)
+  
+  # import each sheet into a list using readxl::read_excel
+  list <- lapply(all, function(x) readxl::read_excel(filename, sheet = x))
+  
+  # save sheet name for each sheet (list)
+  names(list) <- all
+  
+  # breaks up list and creates a dataframe for each sheet with df names matching sheet names
+  list2env(list, envir = .GlobalEnv)
+}
+```
+
+```{r load data, include = FALSE}
+# read in cv data
+readExcelSheets(here::here("data", "mch_cv_data.xlsx"))
+```
+
+# Education
+
+```{r}
+education %>% 
+  detailed_entries(what = degree, 
+                   when = year, 
+                   with = institution, 
+                   where = where, 
+                   why = details,
+                   .protect = TRUE)
+```
+
+# Work Experience
+
+```{r}
+work %>% 
+  detailed_entries(what = role, 
+                   when = glue::glue("{start_date}--{end_date}"), 
+                   with = institution, 
+                   where = where, 
+                   why = details,
+                   .protect = TRUE)
+```
+
+# Research Experience
+
+```{r}
+research %>% 
+  detailed_entries(what = role, 
+                   when = glue::glue("{start_date}--{end_date}"), 
+                   with = institution, 
+                   where = where,
+                   why = details,
+                   .protect = TRUE)
+```
+
+\newpage
+# Grants, Fellowships, and Recognitions
+## Total funding raised: $331,814
+
+```{r}
+grants %>% 
+  detailed_entries(what = funder, 
+                   with = what,
+                   when = when)
+```
+
+# Scientific Publications
+
+Smith, A.D., F. J. Sanders, J. Thibault, D. Carter, **M.C. Handmaker**, and F. Smith. *In review*. South Atlantic Bight -- a Final Stop for Ruddy Turnstones Migrating to the Arctic. Journal of Field Ornithology.
+
+Sanders, F. J., **M. C. Handmaker**, A. S. Johnson, and N. R. Senner (2021). Nocturnal roost on South Carolina coast supports nearly half of Atlantic coast population of Hudsonian Whimbrel Numenius hudsonicus during northward migration. Wader Study 128. [*PDF*.](https://doi.org/10.18194/ws.00228)
+
+Kamm, M. D., T. L. Lloyd-Evans, **M. Handmaker**, and J. M. Reed (2019). A half-century of changes in migratory landbird numbers along coastal Massachusetts. PLOS ONE 14:e0222232. [*PDF*.](https://doi.org/10.1371/journal.pone.0222232)
+
+# Popular Publications
+
+Iglecia, M. and **M. Handmaker**. 2018. *Whimbrels on the Wing*. Esri StoryMap. Publication of the Manomet Shorebird Recovery Program.
+
+**Handmaker, M** and L. Chamberlin. 2017. *Journey of a Semipalmated Sandpiper*. Esri StoryMap. Publication of the Western Hemisphere Shorebird Reserve Network (WHSRN).
+*Recognized by Esri one of 18 Favorite Community-Produced Story Maps of 2017, out of 250,000
+
+# Presentations
+```{r}
+presentations %>% 
+  detailed_entries(what = title, 
+                   when = year, 
+                   with = audience, 
+                   where = place,
+                   why = details,
+                   .protect = TRUE)
+
+```
+
+# Teaching and Outreach
+```{r}
+teaching %>% 
+  detailed_entries(what = role, 
+                   when = when, 
+                   with = what, 
+                   where = with,
+                   why = details,
+                   .protect = TRUE)
+
+```
+
+# Service and Mentoring
+```{r}
+service %>% 
+  detailed_entries(when = when, 
+                   what = with,
+                   with = what,
+                   why = details,
+                   .protect = TRUE)
+
+```
+
+# Professional Development and Relevant Coursework
+```{r}
+training %>% 
+  detailed_entries(when = when,
+                what = with,
+                with = what,
+                .protect = TRUE)
+
+```
+
+# Skills
+```{r}
+options(knitr.kable.NA = "")
+
+skills %>%
+kable(booktabs = TRUE, format = "latex") %>%
+kable_styling(full_width = F, font_size = 8, latex_options = "hold_position") %>%
+row_spec(0, bold = T)
+``` 
