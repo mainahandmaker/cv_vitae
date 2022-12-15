@@ -85,7 +85,7 @@ research %>%
 
 \newpage
 # Grants, Fellowships, and Recognitions
-## Total funding raised: $331,814
+## Total funding raised: $336,764
 
 ```{r}
 grants %>% 
