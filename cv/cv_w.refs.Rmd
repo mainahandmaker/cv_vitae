@@ -1,7 +1,7 @@
 ---
 name: Maina Handmaker
 #surname: Handmaker
-position: "PhD Candidate"
+position: "PhD Student"
 address: "University of Massachusetts Amherst"
 phone: 502.523.1157
 www: mainahandmaker.com
@@ -85,7 +85,7 @@ research %>%
 
 \newpage
 # Grants, Fellowships, and Recognitions
-## Total funding raised: $337,964
+## Total funding raised: $336,764
 
 ```{r}
 grants %>% 
@@ -96,9 +96,7 @@ grants %>%
 
 # Scientific Publications
 
-Smith, A. D., F. J. Sanders, K. L. Lefevre, J. M. Thibault, K. S. Kalasz, **M. C. Handmaker**, F. M. Smith, and T. S. Keyes (2023). Spring migration patterns of red knots in the Southeast United States disentangled using automated telemetry. Scientific Reports 13:11138. [*PDF*](https://www.nature.com/articles/s41598-023-37517-y)
-
-Smith, A.D., F. J. Sanders, J. Thibault, D. Carter, **M.C. Handmaker**, and F. Smith (2023). South Atlantic Bight -- a Final Stop for Ruddy Turnstones Migrating to the Arctic. Journal of Field Ornithology 94. [*PDF*.](https://doi.org/10.5751/JFO-00264-940205)
+Smith, A.D., F. J. Sanders, J. Thibault, D. Carter, **M.C. Handmaker**, and F. Smith. *In review*. South Atlantic Bight -- a Final Stop for Ruddy Turnstones Migrating to the Arctic. Journal of Field Ornithology.
 
 Sanders, F. J., **M. C. Handmaker**, A. S. Johnson, and N. R. Senner (2021). Nocturnal roost on South Carolina coast supports nearly half of Atlantic coast population of Hudsonian Whimbrel Numenius hudsonicus during northward migration. Wader Study 128. [*PDF*.](https://doi.org/10.18194/ws.00228)
 
@@ -165,3 +163,25 @@ kable(booktabs = TRUE, format = "latex") %>%
 kable_styling(full_width = F, font_size = 8, latex_options = "hold_position") %>%
 row_spec(0, bold = T)
 ``` 
+
+# References
+
+Dr. Nathan Senner  
+**PhD Advisor, University of Massachusetts Amherst**  
+(503)-688-8735  
+nsenner@umass.edu
+
+Dr. Rob Clay  
+**Director, WHSRN Executive Office**  
++595 972 911424  
+rclay@manomet.org
+
+Dr. Juliana Bosi de Almeida  
+**Managing Director, Flyways, Manomet**  
++55 61 99966-9116  
+jbosi@manomet.org 
+
+Felicia Sanders  
+**Director, Coastal Birds Program - South Carolina Department of Natural Resources**  
+(843)-520-0961  
+sandersf@dnr.sc.gov
